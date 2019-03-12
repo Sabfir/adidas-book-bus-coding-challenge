@@ -68,3 +68,17 @@ e.g.:
 ```shell
 http://localhost:8082/v2/api-docs
 ``` 
+
+###5. Run in docker
+TO BE DONE
+Is done:
+ - midoffice-app/Dockerfile. To create docker image for midoffice-app run
+ ```
+ $ cd to the midoffice directory
+ $ docker build -f Dockerfile -t book-bus-midoffice-app .
+ ```
+ - to run midoffice with kafka in containers use docker compose. Previously change in application.yml localhost -> kafka
+ ```
+ $ docker-compose up
+ ```
+ as a result zookeeper, kafka and book-bus-midoffice-app should be run, it should say `partitiona assigned...` that means that kafka client connected to kafka broker
