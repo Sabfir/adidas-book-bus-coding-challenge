@@ -62,6 +62,7 @@
     </dependencies>
 
     <build>
+        <finalName>book-bus-midoffice-app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

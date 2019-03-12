@@ -1,0 +1,47 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    hostname: zookeeper
+    networks:
+      - net
+#    network_mode: host
+#    expose:
+#      - 2181
+    ports:
+      - 2181:2181
+  kafka:
+    image: wurstmeister/kafka
+    networks:
+      - net
+#    network_mode: host
+#    expose:
+#      - 9092
+    ports:
+     - 9092:9092
+    hostname: kafka
+    depends_on:
+     - zookeeper
+    environment:
+     - KAFKA_ADVERTISED_HOST_NAME=kafka
+     - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+     - KAFKA_ADVERTISED_PORT=9092
+  midoffice:
+    image: book-bus-midoffice-app
+    networks:
+      - net
+    depends_on:
+      - kafka
+#    network_mode: host
+#    expose:
+#      - 8080
+    ports:
+      - 8080:8080
+#  backoffice:
+#    image: book-bus-backoffice-app
+#    networks:
+#      - net
+#    depends_on:
+#      - kafka
+networks:
+  net:

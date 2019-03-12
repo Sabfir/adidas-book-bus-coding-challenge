@@ -35,7 +35,7 @@ zkserver
  ``` 
 - In your browser run
  ```shell
-http://localhost:8082/route/MAD/LON
+http://localhost:8080/route/MAD/LON
  ``` 
 It will return shortest route and the one with the less stops
  ```shell

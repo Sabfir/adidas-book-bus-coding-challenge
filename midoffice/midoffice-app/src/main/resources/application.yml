@@ -2,8 +2,12 @@
 spring:
     kafka:
         bootstrap-servers: localhost:9092
+#       for docker
+#        bootstrap-servers: kafka:9092
         consumer:
             bootstrap-servers: localhost:9092
+#       for docker
+#            bootstrap-servers: kafka:9092
             group-id: ${spring.application.name}
             auto-offset-reset: earliest
             enable-auto-commit: false

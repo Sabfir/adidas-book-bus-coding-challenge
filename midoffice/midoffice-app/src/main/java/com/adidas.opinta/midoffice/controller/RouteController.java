@@ -24,6 +24,7 @@ public class RouteController {
     public ResponseEntity<?> getAllRoutesByDepartureCity(
             @PathVariable("departureCity") String depCityCode,
             @PathVariable("arrivalCity") String arrCityCode) {
+        System.out.println("OPINTA: test docker");
         return new ResponseEntity<>(routeService.getBestItinerary(depCityCode, arrCityCode), OK);
     }
 }
